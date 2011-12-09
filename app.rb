@@ -20,21 +20,17 @@ class App < Sinatra::Base
   set :sass, Compass.sass_engine_options
 
   get '/' do
-    @title = "Mustache + Sinatra = Wonder"
     mustache :index
   end
 
-  get '/other' do
-    mustache :other
-  end
-
-  get '/nolayout' do
-    content_type 'text/plain'
-    mustache :nolayout, :layout => false
+  get '/resume' do
+    mustache :resume
   end
 
   get '/stylesheets/:name.css' do
     content_type 'text/css', :charset => 'utf-8'
     sass(:"sass/#{params[:name]}", Compass.sass_engine_options )
   end
+
+
 end
