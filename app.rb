@@ -27,6 +27,10 @@ class App < Sinatra::Base
     mustache :resume
   end
 
+  get '/blog' do
+    mustache :blog
+  end
+
   get '/stylesheets/:name.css' do
     content_type 'text/css', :charset => 'utf-8'
     sass(:"sass/#{params[:name]}", Compass.sass_engine_options )
