@@ -1,9 +1,11 @@
 require 'compass'
 
 require 'sinatra/base'
+require 'sinatra/synchrony'
 require 'mustache/sinatra'
 
 class App < Sinatra::Base
+  register Sinatra::Synchrony
   register Mustache::Sinatra
 
   require 'views/layout'
